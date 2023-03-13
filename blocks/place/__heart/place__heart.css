@@ -1,13 +1,11 @@
 .place__heart {
   margin-right: 19px;
-  width: 22px; 
-  height: 19px; 
-  display: block; 
-  position: relative; 
+  width: 22px;
+  height: 19px;
+  display: block;
+  position: relative;
 }
 
 .place__heart:hover {
   opacity: 0.5;
 }
-
-

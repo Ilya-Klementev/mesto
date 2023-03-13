@@ -1,7 +1,7 @@
 .popup__close {
   width: 32px;
   height: 32px;
-  background-color: rgba(0, 0, 0, 0) ;
+  background-color: rgba(0, 0, 0, 0);
   background-image: url(../../../images/close.svg);
   background-position: center;
   background-size: 32px;
@@ -10,7 +10,6 @@
   border: none;
   grid-area: close;
 }
-
 
 @media screen and (max-width: 600px) {
   .popup__close {
@@ -21,7 +20,6 @@
     justify-self: end;
   }
 }
-
 
 .popup__close:hover {
   opacity: 0.6;
