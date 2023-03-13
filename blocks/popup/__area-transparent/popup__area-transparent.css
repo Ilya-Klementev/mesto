@@ -1,0 +1,26 @@
+.popup__area-transparent {
+  width: 470px;
+  height: 370px;
+  background-color: rgba(0, 0, 0, 0);
+  display: grid;
+  grid-template-columns: 1fr 32px;
+  grid-template-rows: 32px 1fr;
+  grid-template-areas: 
+  ". close"
+  "content .";
+  row-gap: 8px;
+  column-gap: 8px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 600px) {
+  .popup__area-transparent {
+    width: 282px;
+    height: 358px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 20px 1fr;
+    grid-template-areas: 
+    "close"
+    "content";
+  }
+}

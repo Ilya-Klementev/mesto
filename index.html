@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./pages/index.css" > 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Место">
+  <meta name="keywords" content="html, css, javascript">
+  <meta name="author" content="Ilya Klementev">
+  <title>Mesto</title>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Шапка - начало-->
+
+    <header class="header">
+      <img class="header__logo" src="./images/logo.svg" alt="Логотип Место">
+    </header>
+    
+    <!-- Шапка - конец-->
+    
+    <main class="content">
+
+      <!-- блок profile - начало-->
+      <section class="profile">
+        <img class="profile__avatar" src="./images/avatar.png" alt="Фото профиля">
+        <div class="profile__info">
+          <div class="profile__container">
+            <h1 class="profile__name" id="name">Жак-Ив Кусто</h1>
+            <button class="profile__edit-button"></button>
+          </div>
+          <h2 class="profile__about" id="about">Исследователь океана</h2>
+        </div>
+        <button class="profile__add-button"></button>
+      </section>
+      <!-- блок profile - конец-->
+
+      <!-- блок elements - начало-->
+      <section class="elements">
+
+        <div class="elements__element">
+          <img class="photo" src="./images/Paris.jpg" alt="Париж">
+          <div class="place">
+            <h3 class="place__title">Париж, Франция</h3>
+            <label class="place__heart">
+              <input type="checkbox" value="1" class="place__heart_checkbox">
+              <span class="place__heart_color"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="elements__element">
+          <img class="photo" src="./images/Barcelona.jpg" alt="Барселона">
+          <div class="place">
+            <h3 class="place__title">Барселона, Испания</h3>
+            <label class="place__heart">
+              <input type="checkbox" value="1" class="place__heart_checkbox">
+              <span class="place__heart_color"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="elements__element">
+          <img class="photo" src="./images/Rome.jpg" alt="Рим">
+          <div class="place">
+            <h3 class="place__title">Рим, Италия</h3>
+            <label class="place__heart">
+              <input type="checkbox" value="1" class="place__heart_checkbox">
+              <span class="place__heart_color"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="elements__element">
+          <img class="photo" src="./images/Sidney.jpg" alt="Сидней">
+          <div class="place">
+            <h3 class="place__title">Сидней, Австралия</h3>
+            <label class="place__heart">
+              <input type="checkbox" value="1" class="place__heart_checkbox">
+              <span class="place__heart_color"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="elements__element">
+          <img class="photo" src="./images/Rio.jpg" alt="Рио Де-Жанейро">
+          <div class="place">
+            <h3 class="place__title">Рио-де-Жанейро, Бразилия</h3>
+            <label class="place__heart">
+              <input type="checkbox" value="1" class="place__heart_checkbox">
+              <span class="place__heart_color"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="elements__element">
+          <img class="photo" src="./images/New-York.jpg" alt="Нью-Йорк">
+          <div class="place">
+            <h3 class="place__title">Нью-Йорк, США</h3>
+            <label class="place__heart">
+              <input type="checkbox" value="1" class="place__heart_checkbox">
+              <span class="place__heart_color"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- блок elements - конец-->
+  
+    </main>
+    <!-- блок popup - начало-->
+    <section class="popup">
+      <div class="popup__area-transparent">
+        <button class="popup__close"></button>
+        <div class="popup__area-content">
+          <h2 class="popup__title">Редактировать порфиль</h2>
+          <input class="popup__name" id="popupName" placeholder="Имя" type="text" required >
+          <input class="popup__about" id="popupAbout" placeholder="Профессия" type="text" required>
+          <button class="popup__submit">Сохранить</button>
+        </div>
+      </div>
+    </section>
+    <!-- блок popup - конец-->
+
+
+    <!-- Подвал-начало-->
+
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
+    </footer>
+
+    <!-- Подвал-конец-->
+
+  </div>
+  <script src="./scripts/index.js"></script>
+</body>
+</html>
