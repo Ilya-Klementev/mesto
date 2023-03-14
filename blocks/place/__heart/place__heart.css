@@ -2,8 +2,12 @@
   margin-right: 19px;
   width: 22px;
   height: 19px;
-  display: block;
   position: relative;
+  background: url(../../../images/heart_transparent.svg) no-repeat;
+  background-position: center;
+
+  cursor: pointer;
+  border: none;
 }
 
 .place__heart:hover {

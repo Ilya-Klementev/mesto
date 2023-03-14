@@ -3,3 +3,9 @@
   box-sizing: border-box;
   margin: 66px auto 0 auto;
 }
+
+@media screen and (max-width: 934px) {
+  .footer {
+    margin: 48px auto 0 auto;
+  }
+}

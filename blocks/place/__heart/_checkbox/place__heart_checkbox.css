@@ -1,8 +1,0 @@
-.place__heart_checkbox {
-  display: none;
-}
-
-.place__heart_checkbox:checked + .place__heart_color {
-  background: url(../../../../images/heart_black.svg) no-repeat;
-  background-position: center;
-}

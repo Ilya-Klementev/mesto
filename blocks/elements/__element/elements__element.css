@@ -1,8 +1,7 @@
 .elements__element {
   background-color: #fff;
   color: #000;
-  line-height: 0;
   border-radius: 10px;
   width: 100%;
-  
+  row-gap: 0px;
 }

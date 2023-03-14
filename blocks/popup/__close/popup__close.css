@@ -1,4 +1,5 @@
 .popup__close {
+  position: absolute;
   width: 32px;
   height: 32px;
   background-color: rgba(0, 0, 0, 0);
@@ -8,7 +9,8 @@
   background-repeat: no-repeat;
   cursor: pointer;
   border: none;
-  grid-area: close;
+  top: -40px;
+  right: -40px;
 }
 
 @media screen and (max-width: 600px) {
@@ -17,7 +19,8 @@
     height: 20px;
     background-image: url(../../../images/close-mini.svg);
     background-size: 20px;
-    justify-self: end;
+    top: -36px;
+    right: 0px;
   }
 }
 
