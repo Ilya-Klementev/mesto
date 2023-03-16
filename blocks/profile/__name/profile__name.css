@@ -22,5 +22,6 @@
     max-width: calc(100vw - 104px);
     font-size: 27px;
     line-height: 33px;
+    padding-top: 9px;
   }
 }

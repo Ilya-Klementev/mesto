@@ -7,33 +7,25 @@ const pageAboutElement = document.querySelector('.profile__about');
 const popupAboutElement = popupElement.querySelector('.popup__input_element_about');
 const popupFormElement = popupElement.querySelector('.popup__form');
 const popupSubmitButtonElement = popupFormElement.querySelector('.popup__submit');
-const pageHeartElements = document.querySelectorAll('.place__heart');
+//const pageHeartElements = document.querySelectorAll('.elements__heart');
 
-
-const PopupElementOpened = function () {
+const popupElementOpened = function () {
   popupElement.classList.add('popup_opened');
   popupNameElement.value = pageNameElement.textContent;
   popupAboutElement.value = pageAboutElement.textContent;
 }
 
-const PopupElementClosed = function () {
+const popupElementClosed = function () {
   popupElement.classList.remove('popup_opened');
 }
 
-const PopupElementSubmit = function (evt) {
-  PopupElementClosed();
+const popupElementSubmit = function (evt) {
+  popupElementClosed();
   pageNameElement.textContent = popupNameElement.value;
   pageAboutElement.textContent = popupAboutElement.value;
   evt.preventDefault();
 }
 
-for (let i = 0; i < pageHeartElements.length; i++) {
-  const pageHeartElement = pageHeartElements[i];
-  pageHeartElement.addEventListener('click', function(){
-    pageHeartElement.classList.toggle('place__heart_liked');
-  });
-}
-
-popupOpenButtonElement.addEventListener('click', PopupElementOpened);
-popupCloseButtonElement.addEventListener('click', PopupElementClosed);
-popupFormElement.addEventListener('submit', PopupElementSubmit);
+popupOpenButtonElement.addEventListener('click', popupElementOpened);
+popupCloseButtonElement.addEventListener('click', popupElementClosed);
+popupFormElement.addEventListener('submit', popupElementSubmit);

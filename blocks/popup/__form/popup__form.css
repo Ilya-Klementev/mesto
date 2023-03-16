@@ -1,3 +1,6 @@
 .popup__form {
   width: 100%;
+  display: grid;
+  row-gap: 19px;
+  grid-template-rows: 38px 38px;
 }
