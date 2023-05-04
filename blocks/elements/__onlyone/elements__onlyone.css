@@ -1,0 +1,9 @@
+.elements__onlyone {
+  grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+}
+
+@media screen and (max-width: 480px) {
+  .elements__onlyone {
+    grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+  }
+}
