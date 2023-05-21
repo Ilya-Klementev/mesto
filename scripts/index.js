@@ -16,6 +16,7 @@ const popupLinkElement = popupAddElement.querySelector('.popup__input_element_li
 const popupAddForm = document.querySelector('.popup_type-add .popup__form');                //форма Add
 const placeNameInput = popupAddForm.querySelector('.popup__input_element_place');           //поле ввода места
 const placeLinkInput = popupAddForm.querySelector('.popup__input_element_link');            //поле ввода ссылки
+const popupContainerElement = document.querySelectorAll('.popup__container');               //контейнер попапа
 
 const popupImageElement = document.querySelector('.popup_type-image');                       // попап image
 const popupImageImgElement = popupImageElement.querySelector('.popup__image');               // картинка попапа
@@ -122,11 +123,45 @@ popupCloseButtonElements.forEach((button) => {
 //функция закрытия попапов
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+
+  const textMessageElements = popup.querySelectorAll('.popup__error');
+  textMessageElements.forEach((messageElement) => {
+    messageElement.textContent = "";
+  });
+
+  const inputElements = popup.querySelectorAll('.popup__input');
+  inputElements.forEach((inputElement) => {
+    inputElement.classList.remove('popup__input_type_error');
+  });
+  //удаление слушателя событий "клавиша esc"
+  document.removeEventListener('keydown', closePopupOnEsc);
+}
+
+//объявление функции закрытия попапов по клику на пустом месте
+function closePopupsOnOutsideClick (event) {
+  if(event.target !== event.currentTarget) {
+    return;
+  }
+  const openedPopup = document.querySelector('.popup_opened');
+  closePopup(openedPopup);
+};
+
+//функция закрытия попапов по нажатию на клавишу esc
+
+function closePopupOnEsc(event) {
+  if (event.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    if (openedPopup) {
+      closePopup(openedPopup);
+    }
+  }
 }
 
 //функция открытия попапов
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupOnEsc);
+  popup.addEventListener('click', closePopupsOnOutsideClick);
 }
 
 //попап Edit открытие
@@ -154,3 +189,4 @@ function submitPopupElement(evt) {
 popupAddOpenButtonElement.addEventListener('click', openedPopupAddElement);
 popupEditOpenButtonElement.addEventListener('click', openedPopupEditElement);
 popupFormElement.addEventListener('submit', submitPopupElement);
+
