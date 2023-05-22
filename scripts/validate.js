@@ -51,7 +51,6 @@ function setEventListener(formElement, config) {
   const inputsList = formElement.querySelectorAll(config.inputSelector);
   const submitPopupElement = formElement.querySelector(config.submitButtonSelector);
 
-
   //для сабмитов
   formElement.addEventListener('submit', (evt) => {
     evt.preventDefault();
@@ -74,7 +73,6 @@ function enableValidation (config) {
     setEventListener(formItem, config);
   })
 };
-
 
 //включение валидации
 enableValidation(configFormSelector);
