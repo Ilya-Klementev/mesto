@@ -100,8 +100,8 @@ popupAddFormElement.addEventListener('submit', function (evt) {
   evt.preventDefault();
   const placeNameValue = placeNameInput.value;
   const placeLinkValue = placeLinkInput.value;
-  evt.target.reset();
   popupEditSubmitElement.classList.add('popup__submit_disabled');
+  popupEditSubmitElement.disabled = true;
   const placeElement = createCard(placeNameValue, placeLinkValue);
   placesContainer.prepend(placeElement);
 
