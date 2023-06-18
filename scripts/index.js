@@ -99,9 +99,8 @@ function openPopup(popup) {
 const addFormValidator = new FormValidator(configFormSelector, popupAddFormElement);
 addFormValidator.enableValidation();
 
-//попап Add открытие 
-const openPopupAddElement = function () {
-  openPopup(popupAddElement);
+  const editFormValidator = new FormValidator(configFormSelector, popupProfileFormElement);
+  editFormValidator.enableValidation();
 }
 
 const editFormValidator = new FormValidator(configFormSelector, popupProfileFormElement);
