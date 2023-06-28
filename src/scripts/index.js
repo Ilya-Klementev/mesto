@@ -1,3 +1,5 @@
+import '../pages/index.css';
+
 const pageNameElement = document.querySelector('.profile__name');                           //Имя в профиле
 const pageAboutElement = document.querySelector('.profile__about');                         //About в профиле
 
