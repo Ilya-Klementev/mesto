@@ -17,7 +17,7 @@ export default class Card {
     const cardDeleteButton = this._element.querySelector('.elements__trash');
 
     cardImage.addEventListener('click', () => {
-      this._openImagePopup();
+      this._handleCardClick(this._link, this._name);
     });
 
     cardLikeButton.addEventListener('click', () => {
@@ -27,16 +27,6 @@ export default class Card {
     cardDeleteButton.addEventListener('click', () => {
       this._deleteCard();
     });
-  }
-
-  _openImagePopup() {
-    const popupImage = document.querySelector('.popup_type-image');
-    const popupImageImgElement = popupImage.querySelector('.popup__image');
-    const popupImageCaptionElement = popupImage.querySelector('.popup__caption');
-    this._handleCardClick(popupImage);
-    popupImageImgElement.src = this._link;
-    popupImageImgElement.alt = this._name;
-    popupImageCaptionElement.textContent = this._name;
   }
 
   _toggleLike() {
