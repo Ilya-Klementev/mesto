@@ -45,24 +45,21 @@ addFormValidator.enableValidation();
 
 const api = new Api( { adressServer, token } );
 
-//инициация готовых карточек
-api.getInitialCards()
-  .then(cards => {
-     cardSection.renderItems(cards)
-  })
-  .catch((err) => console.log(`Ошибка получения карточек: ${err}`))
-
-//инициализация данных пользователя
-api.getUserInfo()
-  .then((userData) => {
+//инициация готовых карточек-данных пользователя
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+  .then(([userData, cards]) => {
     userInfo.setUserInfo(userData);
+    cardSection.renderItems(cards);
     return userData;
   })
   .then((userData) => {
     userInfo.setUserAvatar(userData)
   })
-  .catch((err) => console.log(`Ошибка получения данных пользователя: ${err}`))
-  
+  .catch((err) =>
+    console.log(`Ошибка получения данных пользователя/карточек: ${err}`)
+  );
+
+
 function renderer (item, cardSection) {
   const generatedCard = createCardInstance(
     item.likes, 
@@ -94,17 +91,19 @@ function createCardInstance(likes, name, link, owner, _id, template) {
 //лайки
 function handleCountLike(card) {
   if (!card.liked){
-  api.likeCard(card)
-    .then((res) => {
-    card.changeValueLikes(res)
-    })
-    .catch((err) => console.log(`Ошибка обновления лайка: ${err}`))
+    api.likeCard(card)
+      .then((res) => {
+      card.changeValueLikes(res);
+      card.toggleLike();
+      })
+      .catch((err) => console.log(`Ошибка обновления лайка: ${err}`))
   } else {
-  api.dislikeCard(card)
-    .then((res) => {
-    card.changeValueLikes(res);  
-    })
-    .catch((err) => console.log(`Ошибка обновления лайка: ${err}`))
+    api.dislikeCard(card)
+      .then((res) => {
+      card.changeValueLikes(res);  
+      card.toggleLike();
+      })
+      .catch((err) => console.log(`Ошибка обновления лайка: ${err}`))
   }
 }
 
@@ -154,7 +153,7 @@ function deleteCardElement ( { element, cardId } ) {
 //изменение аватара
 function createAvatar( avatar ) {
   popupAvatar.processLoading(true);
-  api.patchAvatar(avatar.link)
+  api.patchAvatar(avatar.picture)
     .then((data) => {
       userInfo.setUserAvatar(data);
       popupAvatar.close();

@@ -43,11 +43,11 @@ export default class Api {
     }).then(this._handleResponse);
   }
 
-  postCard({ name, link }) {
+  postCard({ place, link }) {
       return fetch(`${this._adressServer}/cards`, {
       method: "POST",
       headers: this._headers,
-      body: JSON.stringify({ name, link }),
+      body: JSON.stringify({name: place, link:link }),
     }).then(this._handleResponse);
   }
 

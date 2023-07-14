@@ -44,7 +44,6 @@ export default class Card {
 
     this._cardLikeButton.addEventListener('click', () => {
       this.handleCountLike(this);
-      this._toggleLike();
     });
 
     if (this._createdUserCard){
@@ -54,7 +53,7 @@ export default class Card {
     }
   }
 
-  _toggleLike() {
+  toggleLike() {
     if(!this.liked){
       this._cardLikeButton.classList.add('elements__heart_liked')
       this.liked = true;

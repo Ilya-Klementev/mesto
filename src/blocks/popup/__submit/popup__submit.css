@@ -28,3 +28,7 @@
   opacity: 0.8;
   transition: opacity 0.3s;
 }
+
+.popup_type-delete .popup__submit {
+  margin-top: 12px;
+}
