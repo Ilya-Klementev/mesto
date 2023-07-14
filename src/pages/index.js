@@ -48,11 +48,9 @@ const api = new Api( { adressServer, token } );
 //инициация готовых карточек
 api.getInitialCards()
   .then(cards => {
-     cardSection.renderItems(cards);
+     cardSection.renderItems(cards)
   })
-  .catch(error => {
-    console.error('Ошибка при получении начальных карточек:', error);
-  });
+  .catch((err) => console.log(`Ошибка получения карточек: ${err}`))
 
 //инициализация данных пользователя
 api.getUserInfo()
@@ -61,11 +59,9 @@ api.getUserInfo()
     return userData;
   })
   .then((userData) => {
-    userInfo.setUserAvatar(userData);
+    userInfo.setUserAvatar(userData)
   })
-  .catch(error => {
-    console.error('Ошибка при получении данных пользователя:', error);
-  });
+  .catch((err) => console.log(`Ошибка получения данных пользователя: ${err}`))
   
 function renderer (item, cardSection) {
   const generatedCard = createCardInstance(
@@ -100,15 +96,15 @@ function handleCountLike(card) {
   if (!card.liked){
   api.likeCard(card)
     .then((res) => {
-    card.changeValueLikes(res);  
+    card.changeValueLikes(res)
     })
-    .catch((err) => console.log(`Ошибка обновления лайка: ${err}`));
+    .catch((err) => console.log(`Ошибка обновления лайка: ${err}`))
   } else {
   api.dislikeCard(card)
     .then((res) => {
     card.changeValueLikes(res);  
     })
-    .catch((err) => console.log(`Ошибка обновления лайка: ${err}`));
+    .catch((err) => console.log(`Ошибка обновления лайка: ${err}`))
   }
 }
 
@@ -121,7 +117,7 @@ function createPopupEdit (values) {
       popupEdit.close();
     })
     .catch((err) => console.log(`Ошибка отправки данных: ${err}`))
-    .finally(() => popupEdit.processLoading(false));
+    .finally(() => popupEdit.processLoading(false))
 }
 
 //добавление новой карточки
@@ -140,7 +136,7 @@ function createPopupAdd (values) {
       popupAdd.close();
     })
     .catch((err) => console.log(`Ошибка добавление карточки: ${err}`))
-    .finally(() => popupAdd.processLoading(false));
+    .finally(() => popupAdd.processLoading(false))
 }
 
 //удаление карточки
@@ -151,20 +147,20 @@ function deleteCardElement ( { element, cardId } ) {
       popupDelete.close();
     })
     .catch((err) => {
-      console.log(`Ошибка при удалении карточки: ${err}`);
+      console.log(`Ошибка при удалении карточки: ${err}`)
     });
 }
 
 //изменение аватара
 function createAvatar( avatar ) {
   popupAvatar.processLoading(true);
-  api.patchAvatar( avatar.link )
+  api.patchAvatar(avatar.link)
     .then((data) => {
       userInfo.setUserAvatar(data);
       popupAvatar.close();
     })
     .catch((err) => console.log(`Ошибка при отправке аватара: ${err}`))
-    .finally(() => popupAvatar.processLoading(false));
+    .finally(() => popupAvatar.processLoading(false))
 }
 
 popupImage.setEventListeners();
@@ -203,4 +199,3 @@ function openPopupImageElement(imageUrl, caption) {
 function openPopupDeleteCard(element, cardId) {
   popupDelete.open(element, cardId);
 }
-
