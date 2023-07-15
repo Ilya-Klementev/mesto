@@ -7,14 +7,15 @@ export default class PopupWithForm extends Popup {
     this._submitCallback = submitCallback;
     this._inputList = this._form.querySelectorAll('.popup__input');
     this._buttonSubmit = this._form.querySelector(".popup__submit");
+    this._submitBtnText = this._buttonSubmit.textContent;
   }
 
-  processLoading(statusLoading) {
+  processLoading(statusLoading, loadingText = 'Сохранение...') {
     this._buttonSubmit.disabled = statusLoading;
     if(statusLoading) {
-      this._buttonSubmit.textContent = "Сохранение..";
+      this._buttonSubmit.textContent = loadingText;
     } else {
-      this._buttonSubmit.textContent = "Сохранить";
+      this._buttonSubmit.textContent = this._submitBtnText;
     }
   }
 

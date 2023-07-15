@@ -50,10 +50,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, cards]) => {
     userInfo.setUserInfo(userData);
     cardSection.renderItems(cards);
-    return userData;
-  })
-  .then((userData) => {
-    userInfo.setUserAvatar(userData)
+    userInfo.setUserAvatar(userData);
   })
   .catch((err) =>
     console.log(`Ошибка получения данных пользователя/карточек: ${err}`)
@@ -155,7 +152,7 @@ function createAvatar( avatar ) {
   popupAvatar.processLoading(true);
   api.patchAvatar(avatar.picture)
     .then((data) => {
-      userInfo.setUserAvatar(data);
+      userInfo.setUserInfo(data);
       popupAvatar.close();
     })
     .catch((err) => console.log(`Ошибка при отправке аватара: ${err}`))

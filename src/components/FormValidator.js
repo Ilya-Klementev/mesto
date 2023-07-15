@@ -62,10 +62,7 @@ export default class FormValidator {
 
   resetError () {
     this._inputList.forEach((inputElement) => {
-      const errorElement = this._formElement.querySelector(`#${inputElement.name}-error`);
-      inputElement.classList.remove(this._config.inputErrorClass);
-      errorElement.textContent = '';
-      errorElement.classList.remove(this._config.errorClass);
+      this._hideInputError(inputElement);
     });
   }
 
