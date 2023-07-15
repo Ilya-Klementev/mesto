@@ -50,7 +50,6 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, cards]) => {
     userInfo.setUserInfo(userData);
     cardSection.renderItems(cards);
-    userInfo.setUserAvatar(userData);
   })
   .catch((err) =>
     console.log(`Ошибка получения данных пользователя/карточек: ${err}`)
